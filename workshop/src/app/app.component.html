@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <hr>
+  <h1>Usuários</h1>
+  <hr>
+
+  <form action="" class="form-inline">
+
+   <div class="form-group">
+      <input type="text" [(ngModel)]="user.name" name="name" placeholder="Nome..." class="form-control">
+   </div>
+   <div class="form-group">
+    <input type="email" [(ngModel)]="user.email" name="email" placeholder="Email..." class="form-control">
+   </div>
+    <button (click)="add(user)" class="btn btn-success">Add</button>
+  </form>
+<hr>
+  <table class="table">
+    <thead>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>
+        Ações
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{u.name}}</td>
+        <td>{{u.email}}</td>
+        <td>
+          <a href="#" (click)="remove(u)" class="btn btn-danger">REMOVER</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
