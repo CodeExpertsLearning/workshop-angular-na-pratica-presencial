@@ -1,34 +1,48 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <hr>
-  <h1>Usuários</h1>
+  <h1>Cervejas</h1>
   <hr>
 
   <form action="" class="form-inline">
 
-   <div class="form-group">
-      <input type="text" [(ngModel)]="user.name" name="name" placeholder="Nome..." class="form-control">
-   </div>
-   <div class="form-group">
-    <input type="email" [(ngModel)]="user.email" name="email" placeholder="Email..." class="form-control">
-   </div>
-    <button (click)="add(user)" class="btn btn-success">Add</button>
+    <div class="form-group col-2">
+        <input type="text" [(ngModel)]="beer.name" name="name" placeholder="Nome..." class="form-control">
+    </div>
+    <div class="form-group col-2">
+      <input type="text" [(ngModel)]="beer.price" name="price" placeholder="R$..." class="form-control">
+    </div>
+    <div class="form-group col-2">
+      <input type="text" [(ngModel)]="beer.type" name="type" placeholder="Tipo" class="form-control">
+    </div>
+    <div class="form-group col-2">
+      <input type="text" [(ngModel)]="beer.mark" name="mark" placeholder="Marca" class="form-control">
+    </div>
+    <div class="form-group col-2">
+      <input type="text" [(ngModel)]="beer.img" name="img" placeholder="Imagem..." class="form-control">
+    </div>
   </form>
+  <br>
+  <button (click)="save(beer)" class="btn btn-success" *ngIf="!isUpdate">Add</button>
+  <button (click)="update(beer)" class="btn btn-success" *ngIf="isUpdate">Atualizar</button>
 <hr>
   <table class="table">
     <thead>
       <th>Nome</th>
-      <th>Email</th>
+      <th>Marca</th>
+      <th>Tipo</th>
       <th>
         Ações
       </th>
     </thead>
     <tbody>
-      <tr *ngFor="let u of users">
-        <td>{{u.name}}</td>
-        <td>{{u.email}}</td>
-        <td>
-          <a href="#" (click)="remove(u)" class="btn btn-danger">REMOVER</a>
+      <tr *ngFor="let b of beers">
+        <td>{{b.name}}</td>
+        <td>{{b.price|currency:'BRL':'R$ '}}</td>
+        <td>{{b.type}}</td>
+        <td width="25%">
+          <a href="#" (click)="edit(b)" class="btn btn-sm btn-primary">EDITAR</a>
+          <a href="#" (click)="remove(b)" class="btn btn-sm btn-danger">REMOVER</a>
         </td>
       </tr>
     </tbody>
