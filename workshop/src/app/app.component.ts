@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { StorageService } from './service/storage.service';
-import { HttpService } from './service/http.service';
-declare var toastr;
 
 @Component({
   selector: 'app-root',
@@ -17,26 +14,11 @@ export class AppComponent {
   //   'email': ''
   // };
 
-  beers: Array<{ 'name', 'price', 'type', 'mark', 'img' }>;
 
-  beer: { 'name', 'price', 'type', 'mark', 'img' } = {
-    'name': '',
-    'price': '',
-    'type': '',
-    'mark': '',
-    'img': ''
-  };
+  // courses;
 
-  courses;
-  isUpdate: boolean = false;
-
-  constructor(
-    private httpService: HttpService,
-    private storage: StorageService
-  ) {
+  constructor() {
     // this.beers = JSON.parse(this.storage.get('users'));
-
-    this.httpService.get('/beers').subscribe(res => this.beers = res);
   }
 
   // add(user: {'name': string, 'email': string}) {
@@ -57,39 +39,6 @@ export class AppComponent {
 
   //   this.users = users;
   // }
-
-  save(beer) {
-    this.httpService.post('/beers', beer).subscribe(res => toastr.success('Sucesso', res.msg));
-  }
-
-  edit(beer) {
-    this.isUpdate = true;
-    this.beer = beer;
-  }
-
-  update(beer) {
-    this.httpService.put('/beers', beer).subscribe(res => {
-
-      this.beer = {
-        'name': '',
-        'price': '',
-        'type': '',
-        'mark': '',
-        'img': ''
-      };
-      this.isUpdate = false;
-
-      toastr.success('Sucesso', res.msg);
-      window.location.reload();
-    });
-  }
-
-  remove(beer) {
-    this.httpService.delete(`/beers/${beer.id}`).subscribe(res => {
-      toastr.success('Sucesso', res.msg);
-      window.location.reload();
-    });
-  }
 
   // remove(user) {
   //   let users = JSON.parse(this.storage.get('users'));

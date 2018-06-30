@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-12">
+    <h1>Criar Nova Cerveja</h1>
+    <hr>
+  </div>
+</div>
+<form action="">
+
+  <div class="form-group">
+    <input type="text" [(ngModel)]="beer.name" name="name" placeholder="Nome..." class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="beer.price" name="price" placeholder="R$..." class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="beer.type" name="type" placeholder="Tipo" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="beer.mark" name="mark" placeholder="Marca" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="beer.img" name="img" placeholder="Imagem..." class="form-control">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-lg btn-success" (click)="update(beer)">
+      Editar
+    </button>
+  </div>
+</form>

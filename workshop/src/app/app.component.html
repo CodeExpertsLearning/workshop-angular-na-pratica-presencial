@@ -1,50 +1,21 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="home">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="beers/list">Beers</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <div class="container">
-  <hr>
-  <h1>Cervejas</h1>
-  <hr>
-
-  <form action="" class="form-inline">
-
-    <div class="form-group col-2">
-        <input type="text" [(ngModel)]="beer.name" name="name" placeholder="Nome..." class="form-control">
-    </div>
-    <div class="form-group col-2">
-      <input type="text" [(ngModel)]="beer.price" name="price" placeholder="R$..." class="form-control">
-    </div>
-    <div class="form-group col-2">
-      <input type="text" [(ngModel)]="beer.type" name="type" placeholder="Tipo" class="form-control">
-    </div>
-    <div class="form-group col-2">
-      <input type="text" [(ngModel)]="beer.mark" name="mark" placeholder="Marca" class="form-control">
-    </div>
-    <div class="form-group col-2">
-      <input type="text" [(ngModel)]="beer.img" name="img" placeholder="Imagem..." class="form-control">
-    </div>
-  </form>
-  <br>
-  <button (click)="save(beer)" class="btn btn-success" *ngIf="!isUpdate">Add</button>
-  <button (click)="update(beer)" class="btn btn-success" *ngIf="isUpdate">Atualizar</button>
-<hr>
-  <table class="table">
-    <thead>
-      <th>Nome</th>
-      <th>Marca</th>
-      <th>Tipo</th>
-      <th>
-        Ações
-      </th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let b of beers">
-        <td>{{b.name}}</td>
-        <td>{{b.price|currency:'BRL':'R$ '}}</td>
-        <td>{{b.type}}</td>
-        <td width="25%">
-          <a href="#" (click)="edit(b)" class="btn btn-sm btn-primary">EDITAR</a>
-          <a href="#" (click)="remove(b)" class="btn btn-sm btn-danger">REMOVER</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <router-outlet></router-outlet>
 </div>
